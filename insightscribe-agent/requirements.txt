@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+pymongo
+openai
+sse_starlette
+python-multipart # Added for potential file uploads, common in FastAPI setups
