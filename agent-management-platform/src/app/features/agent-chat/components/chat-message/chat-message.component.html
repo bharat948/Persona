@@ -1,0 +1,17 @@
+<div
+  class="flex items-end gap-3"
+  [ngClass]="alignmentClass"
+>
+  <app-avatar *ngIf="!isUserMessage" [avatarUrl]="message.senderAvatarUrl || ''"></app-avatar>
+  <div class="flex flex-col">
+    <span class="text-sm text-gray-500 dark:text-gray-400" [ngClass]="{'text-right': isUserMessage}">{{ senderLabel }}</span>
+    <div
+      class="text-base font-normal leading-normal flex max-w-md rounded-lg px-4 py-2"
+      [ngClass]="messageClass"
+    >
+      {{ message.content }}
+    </div>
+    <span class="text-xs text-gray-400 dark:text-gray-500" [ngClass]="{'text-right': isUserMessage}">{{ message.timestamp | date:'short' }}</span>
+  </div>
+  <app-avatar *ngIf="isUserMessage" [avatarUrl]="message.senderAvatarUrl || ''"></app-avatar>
+</div>

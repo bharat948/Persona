@@ -1,0 +1,6 @@
+<div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+  <div class="flex items-center">
+    <app-status-indicator [status]="conversation.isActive ? 'online' : 'offline'"></app-status-indicator>
+    <h2 class="text-lg font-bold ml-2">{{ conversation.agentName }}</h2>
+  </div>
+</div>

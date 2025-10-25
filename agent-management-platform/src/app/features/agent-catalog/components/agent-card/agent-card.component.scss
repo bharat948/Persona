@@ -1,0 +1,52 @@
+// Example: agent-card.component.scss
+
+@import 'assets/styles/variables';
+@import 'assets/styles/mixins';
+
+:host {
+display: block;
+}
+
+.agent-card {
+@include card;
+@include transition(transform, box-shadow);
+cursor: pointer;
+
+&:hover {
+transform: translateY(-2px);
+box-shadow: $shadow-lg;
+}
+
+&__header {
+@include flex-between;
+margin-bottom: $spacing-md;
+}
+
+&__title {
+@include truncate;
+font-size: 1.125rem;
+font-weight: 700;
+color: $text-light;
+
+@media (prefers-color-scheme: dark) {
+color: $text-dark;
+}
+}
+
+&__description {
+@include line-clamp(2);
+font-size: 0.875rem;
+color: #6B7280;
+margin-bottom: $spacing-md;
+}
+
+&__footer {
+@include flex-between;
+padding-top: $spacing-md;
+border-top: 1px solid #E5E7EB;
+
+@media (prefers-color-scheme: dark) {
+border-color: #374151;
+}
+}
+}

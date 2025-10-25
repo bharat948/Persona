@@ -1,0 +1,7 @@
+.btn {
+  @apply py-2 px-4 rounded-md font-semibold;
+}
+
+.btn-primary {
+  @apply bg-primary-catalog text-white;
+}

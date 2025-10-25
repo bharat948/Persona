@@ -1,0 +1,8 @@
+<div class="mb-4">
+  <app-search-bar></app-search-bar>
+  <app-filter-bar></app-filter-bar>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <app-server-card *ngFor="let server of servers().servers" [server]="server" (addServer)="onAddServer($event)"></app-server-card>
+</div>
+<app-pagination [currentPage]="servers().pagination.page" [totalPages]="servers().pagination.totalPages" (pageChange)="onPageChange($event)"></app-pagination>

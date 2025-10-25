@@ -1,0 +1,6 @@
+<div class="p-4">
+  <app-button label="New Conversation" (onClick)="newAgent.emit()"></app-button>
+  <div class="mt-4">
+    <app-agent-list-item *ngFor="let conversation of conversations" [conversation]="conversation" (select)="conversationSelect.emit($event)"></app-agent-list-item>
+  </div>
+</div>

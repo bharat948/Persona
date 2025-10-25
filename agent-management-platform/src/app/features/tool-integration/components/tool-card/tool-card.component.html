@@ -1,0 +1,21 @@
+<div class="bg-white dark:bg-bg-dark-integration p-6 rounded-lg shadow-md flex flex-col justify-between">
+  <div>
+    <div class="flex items-center mb-4">
+      <app-tool-icon [logoUrl]="tool.logoUrl" [name]="tool.name"></app-tool-icon>
+      <h3 class="text-lg font-bold ml-2">{{ tool.name }}</h3>
+    </div>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{{ tool.description }}</p>
+    <div class="flex items-center text-sm mb-4">
+      <span class="mr-2 font-semibold">Status:</span>
+      <span [ngClass]="{
+        'text-green-500': tool.status === ToolStatus.Connected,
+        'text-yellow-500': tool.status === ToolStatus.Available,
+        'text-red-500': tool.status === ToolStatus.Error
+      }">{{ tool.status }}</span>
+    </div>
+  </div>
+  <div>
+    <button *ngIf="tool.status === ToolStatus.Available" (click)="onConnect()" class="btn btn-primary w-full">Connect</button>
+    <button *ngIf="tool.status === ToolStatus.Connected" (click)="onConfigure()" class="btn btn-secondary w-full">Configure</button>
+  </div>
+</div>
