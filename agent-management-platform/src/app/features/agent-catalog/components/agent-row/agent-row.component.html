@@ -1,0 +1,18 @@
+<tr class="hover:bg-gray-50 dark:hover:bg-gray-800">
+  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+    <div class="flex items-center">
+      <app-agent-icon [icon]="agent.icon"></app-agent-icon>
+      <span class="ml-2">{{ agent.name }}</span>
+    </div>
+  </td>
+  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ agent.description }}</td>
+  <td class="px-6 py-4 whitespace-nowrap text-sm">
+    <app-category-badge [category]="agent.category"></app-category-badge>
+  </td>
+  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ agent.version }}</td>
+  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{{ agent.author }}</td>
+  <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+    <app-button label="View" (onClick)="onView()"></app-button>
+    <app-button label="Delete" type="secondary" (onClick)="onDelete()"></app-button>
+  </td>
+</tr>

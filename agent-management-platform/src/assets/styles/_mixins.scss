@@ -1,0 +1,118 @@
+// src/assets/styles/_mixins.scss
+
+// Flexbox mixins
+@mixin flex-center {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+@mixin flex-between {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+@if $breakpoint == 'sm' {
+@media (min-width: $breakpoint-sm) {
+@content;
+}
+} @else if $breakpoint == 'md' {
+@media (min-width: $breakpoint-md) {
+@content;
+}
+} @else if $breakpoint == 'lg' {
+@media (min-width: $breakpoint-lg) {
+@content;
+}
+} @else if $breakpoint == 'xl' {
+@media (min-width: $breakpoint-xl) {
+@content;
+}
+} @else if $breakpoint == 'xxl' {
+@media (min-width: $breakpoint-2xl) {
+@content;
+}
+}
+}
+
+// Truncate text
+@mixin truncate {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+// Multi-line truncate
+@mixin line-clamp($lines) {
+display: -webkit-box;
+-webkit-line-clamp: $lines;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+// Transition mixin
+@mixin transition($properties...) {
+transition-property: $properties;
+transition-duration: $transition-base;
+transition-timing-function: ease-in-out;
+}
+
+// Button reset
+@mixin button-reset {
+background: none;
+border: none;
+padding: 0;
+font: inherit;
+cursor: pointer;
+outline: inherit;
+}
+
+// Card styles
+@mixin card {
+background: white;
+border-radius: $radius-lg;
+box-shadow: $shadow-sm;
+padding: $spacing-lg;
+
+@media (prefers-color-scheme: dark) {
+background: #1F2937;
+box-shadow: none;
+border: 1px solid #374151;
+}
+}
+
+// Scrollbar styling
+@mixin custom-scrollbar {
+&::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+
+&::-webkit-scrollbar-track {
+background: #F3F4F6;
+
+@media (prefers-color-scheme: dark) {
+background: #1F2937;
+}
+}
+
+&::-webkit-scrollbar-thumb {
+background: #D1D5DB;
+border-radius: $radius-full;
+
+@media (prefers-color-scheme: dark) {
+background: #4B5563;
+}
+
+&:hover {
+background: #9CA3AF;
+
+@media (prefers-color-scheme: dark) {
+background: #6B7280;
+}
+}
+}
+}

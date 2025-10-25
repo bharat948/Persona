@@ -1,0 +1,4 @@
+<div class="p-4 space-y-4">
+  <app-chat-message *ngFor="let message of messages" [message]="message"></app-chat-message>
+  <app-typing-indicator *ngIf="isTyping"></app-typing-indicator>
+</div>

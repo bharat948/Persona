@@ -1,0 +1,25 @@
+<div class="bg-white dark:bg-bg-dark-catalog p-6 rounded-lg shadow-md flex flex-col justify-between">
+  <div>
+    <div class="flex items-center mb-4">
+      <span class="material-symbols-outlined mr-2">{{ server.icon }}</span>
+      <h3 class="text-lg font-bold">{{ server.name }}</h3>
+    </div>
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">{{ server.description }}</p>
+    <div class="flex items-center text-sm mb-4">
+      <span class="mr-2 font-semibold">Status:</span>
+      <span [ngClass]="{
+        'text-green-500': server.status === ServerStatus.Available,
+        'text-yellow-500': server.status === ServerStatus.InUse,
+        'text-blue-500': server.status === ServerStatus.Maintenance,
+        'text-red-500': server.status === ServerStatus.Offline
+      }">{{ server.status }}</span>
+    </div>
+    <div *ngIf="server.specifications" class="text-sm">
+      <p *ngIf="server.specifications.cpu"><span class="font-semibold">CPU:</span> {{ server.specifications.cpu }}</p>
+      <p *ngIf="server.specifications.memory"><span class="font-semibold">Memory:</span> {{ server.specifications.memory }}</p>
+      <p *ngIf="server.specifications.storage"><span class="font-semibold">Storage:</span> {{ server.specifications.storage }}</p>
+      <p *ngIf="server.specifications.gpu"><span class="font-semibold">GPU:</span> {{ server.specifications.gpu }}</p>
+    </div>
+  </div>
+  <button (click)="onAddServer()" class="btn btn-primary mt-6">Add Server</button>
+</div>

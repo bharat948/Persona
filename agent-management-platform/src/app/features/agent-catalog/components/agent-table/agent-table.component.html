@@ -1,0 +1,19 @@
+<div class="mb-4">
+  <app-search-bar></app-search-bar>
+  <app-filter-bar></app-filter-bar>
+</div>
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <app-table-header (sort)="onSort($event)"></app-table-header>
+          <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-900 dark:divide-gray-700">
+            <app-agent-row *ngFor="let agent of agents().agents" [agent]="agent" (view)="onView($event)" (delete)="onDelete($event)"></app-agent-row>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<app-pagination [currentPage]="agents().pagination.page" [totalPages]="agents().pagination.totalPages" (pageChange)="onPageChange($event)"></app-pagination>

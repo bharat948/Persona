@@ -1,0 +1,29 @@
+<form [formGroup]="agentForm" (ngSubmit)="onSubmit()" class="bg-white dark:bg-dark-registration p-8 rounded-lg shadow-md">
+  <div class="mb-8">
+    <app-progress-bar [percent]="progressPercent"></app-progress-bar>
+  </div>
+
+  <div *ngIf="currentStep() === RegistrationStep.AgentDetails">
+    <app-metadata-section></app-metadata-section>
+  </div>
+
+  <div *ngIf="currentStep() === RegistrationStep.McpConfiguration">
+    <app-mcp-server-section></app-mcp-server-section>
+  </div>
+
+  <div *ngIf="currentStep() === RegistrationStep.Integrations">
+    <app-integration-section></app-integration-section>
+  </div>
+
+  <div class="flex justify-between mt-8">
+    <button type="button" (click)="onCancel()" class="btn btn-secondary">Cancel</button>
+    <div>
+      <button type="button" *ngIf="currentStep() > RegistrationStep.AgentDetails" (click)="currentStep.set(currentStep() - 1)" class="btn btn-secondary mr-2">Back</button>
+      <button type="button" *ngIf="currentStep() < RegistrationStep.Integrations" (click)="currentStep.set(currentStep() + 1)" class="btn btn-primary" [disabled]="!isFormValid">Next</button>
+      <button type="submit" *ngIf="currentStep() === RegistrationStep.Integrations" class="btn btn-primary" [disabled]="!isFormValid || isSubmitting">
+        <span *ngIf="!isSubmitting">Submit</span>
+        <span *ngIf="isSubmitting">Submitting...</span>
+      </button>
+    </div>
+  </div>
+</form>

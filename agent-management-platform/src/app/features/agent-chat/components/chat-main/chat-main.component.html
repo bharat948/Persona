@@ -1,0 +1,7 @@
+<div class="flex flex-col h-full">
+  <app-chat-header [conversation]="conversation"></app-chat-header>
+  <div class="flex-1 overflow-y-auto">
+    <app-chat-history [messages]="conversation.messages" [isTyping]="isTyping"></app-chat-history>
+  </div>
+  <app-chat-composer (messageSend)="messageSend.emit($event)"></app-chat-composer>
+</div>

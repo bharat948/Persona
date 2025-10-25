@@ -1,0 +1,8 @@
+<div class="mb-4">
+  <app-search-bar></app-search-bar>
+  <app-category-filter></app-category-filter>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <app-tool-card *ngFor="let tool of tools()" [tool]="tool" (connect)="onConnect($event)" (configure)="onConfigure($event)"></app-tool-card>
+</div>
+<app-config-modal [isOpen]="isModalOpen()" [tool]="selectedTool()" (closeModal)="isModalOpen.set(false)" (saveConfiguration)="onSaveConfiguration($event)"></app-config-modal>
